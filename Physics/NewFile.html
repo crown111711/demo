@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <title>用户登录</title>
+    <script src="Scripts/jquery-1.4.1.js" type="text/javascript"></script>
+    <script src="Scripts/login.js" type="text/javascript"></script>
+    <style type="text/css">
+        body { font-size: 12px; }
+        .msg { color: red; }
+        .login{ width: 800px;margin: 0 auto;}
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="login" style="height: 160px">
+        <div>
+            <label for="userName">
+                帐号：</label>
+            <input type="text" name="userName" />
+        </div>
+        <div>
+            <label for="password">
+                密码：</label>
+            <input type="password" name="password" />
+        </div>
+        <input type="submit" id="btnSumit" value="登录" />
+        <p class="msg"></p>
+    </div>
+    </form>
+    <script type="text/javascript">
+        $('#form1').login({
+            url: "AjaxLogin.aspx",
+            userName: $("input[name='userName']"),
+            password: $("input[name='password']"),
+            msg: $(".msg"),
+            button: $("#btnSumit")
+        });
+    </script>
+</body>
+</html>
